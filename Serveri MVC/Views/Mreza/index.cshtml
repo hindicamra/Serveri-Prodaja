@@ -1,0 +1,52 @@
+﻿@using Serveri_MVC.Models
+
+@{
+    ViewBag.Title = "Mreža";
+    List<mrezaPonuda> mrz = (List<mrezaPonuda>)ViewData["mrz"];
+}
+
+<br/>
+Sa razvojem kompjuterskih mreža poslednjih godina drastično su se povećale mogućnosti koje se pružaju korisnicima modernih mreža. Moguće je koristiti internet da bi se 
+došlo do podataka, moguće je koristiti mreže radi prenosa raznih vrsta podataka: datoteka sa podacima, video nadzora i alarma, za prenos glasa i slike, ...<br/><br />
+
+Iz tog razloga u mogućnosti smo da Vam uradimo mrežu po sistemu "ključ u ruke", od projektovanja, preko izgradnje, pa sve do puštanja u rad i testiranja. Kod nas ne postoji 
+limit u vezi projektnog zadatka koji treba izvršiti za Vas ili tehnologija pomoću koji kreirati željenu mrežu.<br /><br />
+
+U slučaju da kod Vas u firmi postoji neka kompjuterska mreža koju treba unaprediti, proširiti ili povezati sa novom mrežom u mogućnosti smo da izvršimo restrukturiranje i 
+rekonstrukciju mreže, kako bi se dobili najpovoljniji rezultati. Bez obzira da li je u pitanju žična ili bežična kompjuterska mreža, dovoljno je samo da nas pozovete i vaš 
+posao je rešen, jer nakon dogovora mi sve preuzimamo i završavamo projakat u najkraćem mogućem roku sa maksimalnim kvalitetom.<br /><br />
+
+Pored navedenih usluga, pružamo i usluge održavanja kompjuterskih mreža kako bi vaša mreža radila pouzdano pospešujući, olakšavajući i ubrzavajući vaše svakodnevno 
+poslovanje.<br />
+
+<div class="">
+    <img src="~/slike/mreza/network.jpg" alt="" class="img-responsive" />
+</div>
+
+<h2>Mreža ponuda:</h2>
+
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>Naziv:</th>
+        <th>Specifikacija:</th>
+        <th>Cijena EURO:</th>
+        <th></th>
+    </tr>
+    @foreach (mrezaPonuda x in mrz)
+    {
+        <tr>
+            <th>@x.NazivMrezneKonponente</th>
+            <th>@x.specifikacija</th>
+            <th>@x.cijena</th>
+            @if (@x.OLXLink.Length > 0)
+            {
+                <th> <a href="@x.OLXLink" class="btn btn-default" target="_blank">Kupi</a>  </th>
+            }
+            else
+            {
+                <th></th>
+            }
+
+        </tr>
+    }
+</table>

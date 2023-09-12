@@ -1,0 +1,42 @@
+﻿@using Serveri_MVC.Models
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Mreža";
+    List<mrezaPonuda> mp = (List<mrezaPonuda>) ViewData["mp"];
+}
+
+<h2>Mreža</h2>
+
+@Html.ActionLink(" Nova komponenta", "Index", "MrezaDodajNovi", null, new { @class = "btn btn-default glyphicon glyphicon-plus-sign" }) <br/><br/>
+
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>Naziv:</th>
+        <th>Specifikacija:</th>
+        <th>Cijena EURO:</th>
+        <th>OLX link:</th>
+        <th>Akcije:</th>
+    </tr>
+    @foreach (mrezaPonuda x in mp)
+    {
+        <tr>
+            <th>@x.NazivMrezneKonponente</th>
+            <th>@x.specifikacija</th>
+            <th>@x.cijena</th>
+            @if (@x.OLXLink.Length > 0)
+            {
+                <th> @x.OLXLink </th>
+            }
+            else
+            {
+                <th></th>
+            }
+            
+            <th>
+                @Html.ActionLink(" ", "Edit", "MrezaDodajNovi", new { id = @x.Id }, new { @class = "btn btn-default glyphicon glyphicon-pencil" })
+                @Html.ActionLink(" ", "Delete", "MrezaDodajNovi", new {id = @x.Id}, new {@class = "btn btn-danger glyphicon glyphicon-remove"})
+            </th>
+        </tr>
+    }
+</table>

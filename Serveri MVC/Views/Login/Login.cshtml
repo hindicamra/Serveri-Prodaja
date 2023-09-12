@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm())
+{
+    @*<div>@Html.Label("User name")</div>
+    <div>@Html.TextBox("name")</div>
+    <div>@Html.Label("Password")</div>
+    <div>@Html.TextBox("password")</div>*@
+    <div style="width: 300px; margin: 0 auto; background: rgb(233, 235, 228); border-radius: 10px">
+        <div style="margin-left: 11px">
+            <div>
+                <label>User name:</label>
+            </div>
+            <div>
+                <input type="text" name="name" placeholder="Username" class="form-control" style="background: rgb(250, 255, 189)" required />
+            </div>
+
+            <div>
+                <label>Password:</label>
+            </div>
+            <div>
+                <input type="password" name="password" placeholder="Password" class="form-control" style="background: rgb(250, 255, 189)" required />
+            </div><br />
+
+            <div>
+                <input type="submit" value="Login" class="btn btn-default" />
+            </div><br />
+        </div>
+    </div>
+}

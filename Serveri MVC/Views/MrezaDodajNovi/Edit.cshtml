@@ -1,0 +1,37 @@
+﻿@using Serveri_MVC.Models
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Komponenta promjena";
+    mrezaPonuda mp = (mrezaPonuda)ViewData["mp"];
+}
+
+<h3>Komponenta</h3>
+
+<form action="/MrezaDodajNovi/EditSave">
+    <h3>Korekcija</h3>
+    <input type="text" name="id" value="@mp.Id" hidden="True" />
+
+    <div class="form-group">
+        <label for="comment">Naziv servera:</label>
+        <input name="TextNazivMrezneKomponente" type="text" placeholder="Naziv servera" class="form-control" value="@mp.NazivMrezneKonponente" />
+    </div>
+
+    <div class="form-group">
+        <label for="comment">Specifikacija:</label>
+        <textarea class="form-control" rows="20" name="TextSpecifikacija" placeholder="Specifikacija servera">@mp.specifikacija</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="comment">Cijena:</label>
+        <input name="TextCijena" type="number" placeholder="Cijena" class="form-control" value="@mp.cijena" />
+    </div>
+
+    <div class="form-group">
+        <label for="comment">OLX Link:</label>
+        <input name="TextOLXLink" type="url" placeholder="OLX Link" class="form-control" value="@mp.OLXLink" />
+    </div>
+
+    <input type="submit" value="Snimi" class="btn btn-default" />
+
+</form>

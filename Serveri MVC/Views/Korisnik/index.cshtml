@@ -1,0 +1,25 @@
+﻿@using Serveri_MVC.Models
+
+@{
+    ViewBag.Title = "Korisnici";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    List<User> usr = (List<User>) ViewData["usr"];
+}
+
+<h3>Korisnici</h3>
+
+@Html.ActionLink(" Novi korisnik", "Dodaj", "Korisnik", null, new { @class = "btn btn-default glyphicon glyphicon-plus-sign" }) <br /><br />
+
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>Korisnik:</th>
+        <th>Akcija:</th>
+    </tr>
+    @foreach (User x in usr)
+    {
+        <tr>
+            <th>@x.Login</th>
+            <th> @Html.ActionLink(" ", "Delete", "Korisnik", new { id = @x.Id }, new { @class = "btn btn-danger glyphicon glyphicon-remove" }) </th>
+        </tr>
+    }
+</table>

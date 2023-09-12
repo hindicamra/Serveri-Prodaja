@@ -1,0 +1,41 @@
+﻿@using Serveri_MVC.Models
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Server korekcija";
+    serveriPonuda sp = (serveriPonuda) ViewData["sp"];
+}
+
+
+<form action="/ServerDodajNovi/EditSave">
+    <h3>Korekcija</h3>
+    <input type="text" name="id" value="@sp.Id" hidden="True" />
+
+    <div class="form-group">
+        <label for="comment">Naziv servera:</label>
+        <input name="TextNazivServera" type="text" placeholder="Naziv servera" class="form-control" value="@sp.NazivServera" />
+    </div>
+
+    <div class="form-group">
+        <label for="comment">Specifikacija:</label>
+        <textarea class="form-control" rows="20" name="TextSpecifikacija" placeholder="Specifikacija servera">@sp.specifikacija</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="comment">RAM:</label>
+        <input name="TextRAM" type="number" placeholder="RAM" class="form-control" value="@sp.RAM" />
+    </div>
+
+    <div class="form-group">
+        <label for="comment">Cijena:</label>
+        <input name="TextCijena" type="number" placeholder="Cijena" class="form-control" value="@sp.cijena" />
+    </div>
+
+    <div class="form-group">
+        <label for="comment">OLX Link:</label>
+        <input name="TextOLXLink" type="url" placeholder="OLX Link" class="form-control" value="@sp.OLXLink" />
+    </div>
+
+    <input type="submit" value="Snimi" class="btn btn-default" />
+
+</form>

@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Mreza dodaj";
+}
+
+<form action="/MrezaDodajNovi/Snimi">
+    <h3>Mrežna komponenta nova</h3>
+
+    <div class="form-group">
+        <label for="comment">Naziv komponente:</label>
+        <input name="TextNazivKomponente" type="text" placeholder="Naziv komponente" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="comment">Specifikacija:</label>
+        <textarea class="form-control" rows="20" name="TextSpecifikacija" placeholder="Specifikacija servera"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="comment">Cijena:</label>
+        <input name="TextCijena" type="number" placeholder="Cijena" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="comment">OLX Link:</label>
+        <input name="TextOLXLink" type="url" placeholder="OLX Link" class="form-control" />
+    </div>
+
+    <input type="submit" value="Snimi" class="btn btn-default" />
+
+</form>

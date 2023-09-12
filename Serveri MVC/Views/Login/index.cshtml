@@ -1,0 +1,16 @@
+﻿@using Serveri_MVC.Models
+@{
+    ViewBag.Title = "index";
+}
+
+<h2>index</h2>
+
+@{
+    var user = Session["user"] as User;
+}
+
+@if (user != null)
+{
+    <h3>Welcome @user.UserName</h3>
+    @Html.ActionLink("Logout", "Logout", "Login")
+}

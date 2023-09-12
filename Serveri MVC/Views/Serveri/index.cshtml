@@ -1,0 +1,63 @@
+﻿@using Serveri_MVC.Models
+
+@{
+    ViewBag.Title = "Serveri ponuda";
+    List<serveriPonuda> srv = (List<serveriPonuda>)ViewData["srv"];
+    List<RamVM> srvRam = (List<RamVM>)ViewData["srvRam"];
+}
+
+<br /><br />
+<form class="form-inline" action="/Serveri/">
+    <label>Ram: </label>
+    <select name="RamKolicina" class="form-control">
+        @foreach (RamVM x in srvRam)
+        {
+            <option value="@x.KolicinaRama">@x.KolicinaRama -GB</option>
+        }
+    </select>
+    <label>Cijena: </label>
+    @Html.RadioButton("cena", "Viša=>Niža") Viša=>Niža <b>/</b>
+    @Html.RadioButton("cena", "Niža=>Viša") Niža=>Viša
+
+    <input type="submit" value="Pretraga" class="btn btn-default" />
+</form>
+
+<h2>Ukupno servera: @srv.Count</h2>
+
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>Slika:</th>
+        <th>Naziv:</th>
+        <th>Specifikacija:</th>
+        <th>Cijena EURO:</th>
+        <th></th>
+    </tr>
+    @foreach (serveriPonuda x in srv)
+    {
+        <tr>
+            <th>
+                @if (@x.Content != null)
+                {
+                    <img src="data://image/jpeg;base64, @Convert.ToBase64String(x.Content, 0, x.Content.Length)" class="img-responsive" />
+
+                }
+                else
+                {
+                    <img src="~/slike/server/rsz_no-image-available.png" class="img-responsive" />
+                }
+            </th>
+
+            <th>@x.NazivServera</th>
+            <th>@x.specifikacija RAM: @x.RAM GB</th>
+            <th>@x.cijena</th>
+            @if (@x.OLXLink.Length > 0)
+            {
+                <th> <a href="@x.OLXLink" class="btn btn-default" target="_blank">Kupi</a> </th>
+            }
+            else
+            {
+                <th></th>
+            }
+        </tr>
+    }
+</table>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - ASP.NET MVC</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <script src="~/scripts/modernizr-2.8.3.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand glyphicon glyphicon-home" })
+                
+                @Html.ActionLink("Serveri", "Index", "Serveri", new { area = "" }, new { @class = "navbar-brand" })
+
+                @Html.ActionLink("Mreža", "Index", "Mreza", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Servis opreme", "Index", "Servis", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Kontakt", "Index", "Kontakt", new { area = "" }, new { @class = "navbar-brand" })</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div align="center">
+        <img src="https://eld3pq-sn3302.files.1drv.com/y3mahFR4FC3Tn-cTPeSrBTYhAOFvExwAJZJsdGSgYHDUGccnurNNz6P8r0Zgl1sUGZ0-uy0tWXthbphBuht-Iv_5kCDQqWDp7JtuEdehg2qfaokFv-ek-vW66QyoT7m2og-3Q9hilZcETIYsGw_q7Qp4OlYJr0_sSiMNlU9BrbYYmg?width=1140&height=300&cropmode=none" class="img-responsive" />
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - ASP.NET MVC & MS SQL</p>
+            <p> <a href="http://amel.ddns.net" style="text-decoration: NONE; color: black" ; target="_blank">Design by. Amel Rahmanović</a> </p>
+        </footer>
+    </div>
+    <script src="~/scripts/jquery-3.1.1.js"></script>
+    <script src="~/scripts/bootstrap.js"></script>
+</body>
+</html>
